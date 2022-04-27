@@ -1,0 +1,1 @@
+This is a simple 2D platform game to explore Unity's editing software.
