@@ -20,12 +20,25 @@ public class Player : MonoBehaviour
 
     void PlayerMovement()
     {
+        // Jumping Action 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (GetComponent<CircleCollider2D>().IsTouching(Floor))
             {
-                GetComponent<Rigidbody2D>().AddForce(Vector2.up * 5, ForceMode2D.Impulse);
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * 15, ForceMode2D.Impulse);
             }
+        }
+
+        // Moving Right Action
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            GetComponent<Rigidbody2D>().AddForce(Vector2.right * 4, ForceMode2D.Force);
+        }
+
+        // Moving Left Action
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            GetComponent <Rigidbody2D>().AddForce(Vector2.left * 4, ForceMode2D.Force);
         }
     }
 }
