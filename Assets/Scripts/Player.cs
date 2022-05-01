@@ -6,10 +6,11 @@ public class Player : MonoBehaviour
 {
 
     public BoxCollider2D Floor;
+    public bool DoubleJump;
     // Start is called before the first frame update
     void Start()
     {
-        
+        DoubleJump = false;
     }
 
     // Update is called once per frame
@@ -26,6 +27,15 @@ public class Player : MonoBehaviour
             if (GetComponent<CircleCollider2D>().IsTouching(Floor))
             {
                 GetComponent<Rigidbody2D>().AddForce(Vector2.up * 15, ForceMode2D.Impulse);
+                DoubleJump = false;
+            }
+            else
+            {
+                if(DoubleJump == false)
+                {
+                    GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+                    DoubleJump = true;
+                }
             }
         }
 
